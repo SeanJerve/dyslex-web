@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Track SpLD Assessment | ADHD, Dyspraxia, & DSA Compliant</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Set up Tailwind configuration --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // SUBDUED COLOR PALETTE: Dark Slate Blue and Muted Bronze/Ochre
+                    colors: {
+                        'primary': '#2c3e50', // Dark Slate Blue (Authority, Trust, Professionalism)
+                        'secondary': '#b45309', // Muted Bronze/Ochre (Speed, Highlight, Value - less vibrant)
+                        'accent-light': '#f7f8f9', // Very Light Grey/Off-white
+                        'background': '#ffffff', // Pure White for maximum clean look
+                        'text-dark': '#1e293b', // Slate 800
+                        'text-light': '#475569', // Slate 600
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Include Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts: Inter --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* General link styles */
+        a { @apply transition duration-200 ease-in-out; }
+
+        /* Specific card shadow for a crisp look */
+        .crisp-shadow { box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05); }
+        .crisp-shadow:hover { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
+
+        /* Active nav link styles (Desktop) */
+        .nav-link.active {
+            @apply text-secondary font-bold border-b-2 border-secondary;
+        }
+        /* Active nav link styles (Mobile) */
+        .nav-link-mobile.active {
+            @apply bg-secondary/10 text-secondary font-semibold;
+        }
+
+        /* --- Animation Class --- */
+        /* This class defines the final state for elements revealed by the Intersection Observer */
+        .fade-in-up {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="font-sans text-text-dark bg-background flex flex-col min-h-screen">
+
+    <!-- Header & Navigation --><header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo/Site Title --><a href="#home" data-page="home" class="nav-link text-2xl font-extrabold text-primary flex items-center">
+                    <i class="fas fa-bolt mr-2 text-secondary"></i> Assess<span class="text-secondary">Fast</span>.UK
+                </a>
+
+                <!-- Desktop Navigation --><nav class="hidden md:flex space-x-1 items-center text-sm font-medium">
+                    <a href="#assessment" data-page="assessment" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">The Process</a>
+                    <a href="#report" data-page="report" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Report & DSA</a>
+                    <a href="#living" data-page="living" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Living Well</a>
+                    <a href="#team" data-page="team" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Our Experts</a>
+                    <a href="#contact" data-page="contact" class="nav-link px-4 py-2 bg-secondary text-white rounded-full hover:bg-orange-800 transition crisp-shadow ml-4">Book Now: £295</a>
+                </nav>
+
+                <!-- Mobile Menu Button --><button id="mobile-menu-button" class="md:hidden text-text-light focus:outline-none p-2 rounded-lg hover:bg-gray-100">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Now simple 'hidden' toggling) --><nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-2 overflow-hidden">
+            <a href="#assessment" data-page="assessment" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">The Assessment Process</a>
+            <a href="#report" data-page="report" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Report & DSA Compliance</a>
+            <a href="#living" data-page="living" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Living Well Support</a>
+            <a href="#team" data-page="team" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Meet Our Team</a>
+            <a href="#contact" data-page="contact" class="nav-link-mobile block py-2 px-4 text-sm bg-secondary text-white m-2 rounded-lg text-center crisp-shadow hover:bg-orange-800">Book Now: £295</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <!-- 1. Home Page / Hero Section --><section id="home" class="page-section py-16 md:py-32 bg-gradient-to-br from-background to-accent-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Hero Text (Starts visible, but we add subtle animation classes) -->
+                    <div class="space-y-6 transition duration-1000 transform opacity-0 translate-y-4 fade-in-up">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-text-dark tracking-tight leading-tight">
+                            Get Diagnosed. <br>
+                            <span class="text-primary">Get Supported.</span> <span class="text-secondary">Fast.</span>
+                        </h1>
+                        <p class="text-xl text-text-light max-w-lg font-medium border-l-4 border-secondary pl-4">
+                            UK-wide Online Assessments for ADHD & Dyspraxia. Smooth process, exceptional value, and a guaranteed 3-day report turnaround.
+                        </p>
+                        
+                        <!-- Key Value Proposition -->
+                        <div class="bg-primary/90 text-white p-6 rounded-xl crisp-shadow inline-block transition duration-1000 transform opacity-0 translate-y-4 delay-200 fade-in-up">
+                            <h2 class="text-3xl md:text-4xl font-black flex items-center">
+                                <i class="fas fa-pound-sign text-secondary text-2xl mr-2"></i> Only <span class="ml-1">£295</span>
+                            </h2>
+                            <p class="text-sm mt-1">APC Qualified, DSA Compliant, and Unbeatable Value.</p>
+                        </div>
+
+                        <div class="pt-4 flex space-x-4">
+                            <a href="#assessment" data-page="assessment" class="nav-link px-6 py-3 bg-secondary text-white font-semibold rounded-lg crisp-shadow hover:bg-orange-800 transition transform hover:-translate-y-1">
+                                Start Your Assessment <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Icon/Visual --><div class="hidden lg:block text-center transition duration-1000 transform opacity-0 translate-y-4 delay-300 fade-in-up">
+                        <i class="fas fa-brain text-[12rem] text-primary/10 mb-4"></i>
+                        <p class="text-text-light text-lg">Expert insight into Specific Learning Difficulties (SpLD).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The Assessment Process / Online Focus --><section id="assessment" class="page-section hidden py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        A Smooth, Online Process
+                    </h2>
+                    <p class="text-lg text-center max-w-3xl mx-auto mb-12 text-text-light">
+                        Our entire assessment is conducted online, ensuring maximum convenience, comfort, and speed, wherever you are in the UK.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 --><div class="text-center p-6 bg-accent-light rounded-xl crisp-shadow border-t-4 border-primary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-100">
+                        <i class="fas fa-laptop-house text-4xl text-primary mb-3"></i>
+                        <h3 class="text-xl font-bold text-text-dark mb-2">1. Book Your Online Slot</h3>
+                        <p class="text-sm text-text-light">Select a date and time that suits you. Complete the initial paperwork digitally before your session.</p>
+                    </div>
+                    <!-- Step 2 --><div class="text-center p-6 bg-accent-light rounded-xl crisp-shadow border-t-4 border-primary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-200">
+                        <i class="fas fa-comments text-4xl text-primary mb-3"></i>
+                        <h3 class="text-xl font-bold text-text-dark mb-2">2. Comprehensive Assessment</h3>
+                        <p class="text-sm text-text-light">A detailed online interview with an experienced APC-qualified assessor. We investigate ADHD and Dyspraxia as SpLDs.</p>
+                    </div>
+                    <!-- Step 3 (The Guarantee) --><div class="text-center p-6 bg-secondary/10 rounded-xl crisp-shadow border-t-4 border-secondary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-300">
+                        <i class="fas fa-stopwatch-20 text-4xl text-secondary mb-3"></i>
+                        <h3 class="text-xl font-bold text-secondary mb-2">3. Report Guarantee: 3 Days</h3>
+                        <p class="text-sm text-text-dark font-medium">We guarantee your full, detailed diagnostic report will be delivered within 3 working days of your assessment.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-center animate-on-scroll delay-400">
+                    <a href="#contact" data-page="contact" class="nav-link px-8 py-3 bg-primary text-white font-semibold rounded-lg crisp-shadow hover:bg-gray-600 transition transform hover:-translate-y-1">
+                        View Availability & Book Now <i class="fas fa-calendar-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Report Quality & DSA Compliance --><section id="report" class="page-section hidden py-16 md:py-20 bg-accent-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        Your Report: The Key to Support
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                    <!-- Report Features -->
+                    <div class="space-y-6 bg-white p-8 rounded-xl crisp-shadow border-l-4 border-secondary animate-on-scroll delay-100">
+                        <h3 class="text-2xl font-bold text-secondary flex items-center"><i class="fas fa-file-invoice mr-3 text-primary text-2xl"></i> What's Inside Your Report?</h3>
+                        <p class="text-text-dark text-lg">Your comprehensive report includes a formal diagnosis (where applicable) and clear, practical recommendations for support at work or in education.</p>
+                        <ul class="space-y-3 list-none pl-0 text-sm">
+                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-stamp text-primary mt-1 mr-3"></i> <strong>APC Qualified:</strong> Authored by an experienced, fully certified professional.</li>
+                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-university text-primary mt-1 mr-3"></i> <strong>DSA Compliant:</strong> Fully meets the requirements for applications to the Disabled Students’ Allowance (DSA).</li>
+                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-puzzle-piece text-primary mt-1 mr-3"></i> <strong>Dual Investigation:</strong> Explicit investigation and consideration of both ADHD and Dyspraxia.</li>
+                        </ul>
+                    </div>
+                    <!-- DSA Explanation -->
+                    <div class="space-y-6 animate-on-scroll delay-200">
+                        <h3 class="text-2xl font-bold text-primary flex items-center"><i class="fas fa-graduation-cap mr-3 text-secondary text-2xl"></i> Unlock Educational Support (DSA)</h3>
+                        <p class="text-text-light text-lg">If you are a student, a compliant report is essential for accessing the Disabled Students’ Allowance.</p>
+                        <div class="p-6 bg-primary/10 rounded-xl border border-primary/20">
+                            <p class="font-semibold text-primary mb-2">What DSA Can Cover:</p>
+                            <ul class="list-disc list-inside text-text-dark text-sm pl-4 space-y-1">
+                                <li>Specialist equipment (laptops, software).</li>
+                                <li>Non-medical helpers (study skills tutors).</li>
+                                <li>Travel and general expenses related to your disability.</li>
+                            </ul>
+                            <p class="text-xs text-text-light italic mt-3">Our report ensures you meet the documentary standards needed for this process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Living Well Support --><section id="living" class="page-section hidden py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        Living Well: Post-Assessment Strategies
+                    </h2>
+                    <p class="text-lg text-center max-w-3xl mx-auto mb-12 text-text-light">
+                        A diagnosis is the beginning. We provide resources to help you integrate support and thrive in daily life.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1: Executive Function --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-secondary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-100">
+                        <i class="fas fa-cogs text-4xl text-secondary mb-4"></i>
+                        <h3 class="font-bold text-xl text-text-dark mb-2">Executive Function Tools</h3>
+                        <p class="text-sm text-text-light">Practical tools and frameworks for task initiation, planning, and emotional regulation, specifically targeting SpLD challenges.</p>
+                    </div>
+                    <!-- Card 2: Workplace Adjustments --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-primary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-200">
+                        <i class="fas fa-desktop text-4xl text-primary mb-4"></i>
+                        <h3 class="font-bold text-xl text-text-dark mb-2">Workplace Adjustments</h3>
+                        <p class="text-sm text-text-light">Guidance on utilizing Access to Work (or similar schemes) and negotiating effective reasonable adjustments with employers.</p>
+                    </div>
+                    <!-- Card 3: Self-Advocacy --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-secondary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-300">
+                        <i class="fas fa-hand-fist text-4xl text-secondary mb-4"></i>
+                        <h3 class="font-bold text-xl text-text-dark mb-2">Self-Advocacy & Identity</h3>
+                        <p class="text-sm text-text-light">Resources on understanding neurodivergent identity, building self-compassion, and communicating needs effectively to others.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Our Team / Expertise --><section id="team" class="page-section hidden py-16 md:py-20 bg-background">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        Experienced & Qualified Professionals
+                    </h2>
+                </div>
+                <div class="max-w-4xl mx-auto text-center space-y-6">
+                    <p class="text-lg text-text-dark font-medium border-l-4 border-primary pl-4 inline-block animate-on-scroll delay-100">
+                        Our team comprises highly experienced, APC qualified assessors who are specialists in complex neurodevelopmental and learning difficulties. We ensure rigorous, evidence-based assessments.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+                        <div class="bg-white p-6 rounded-xl crisp-shadow border-t-8 border-secondary animate-on-scroll delay-200">
+                            <h3 class="text-2xl font-bold text-secondary mb-2 flex items-center justify-center md:justify-start"><i class="fas fa-user-check mr-3"></i> APC Certified</h3>
+                            <p class="text-sm text-text-light">All assessors hold a current Assessment Practising Certificate (APC), mandatory for professional compliance and DSA reporting.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl crisp-shadow border-t-8 border-primary animate-on-scroll delay-300">
+                            <h3 class="text-2xl font-bold text-primary mb-2 flex items-center justify-center md:justify-start"><i class="fas fa-microscope mr-3"></i> SpLD Specialism</h3>
+                            <p class="text-sm text-text-light">Deep expertise in differential diagnosis, particularly the intersection of ADHD, Dyspraxia (DCD), and other specific learning difficulties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact & Booking --><section id="contact" class="page-section hidden py-16 md:py-20 bg-accent-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        Book Your £295 Online Assessment
+                    </h2>
+                </div>
+                <div class="max-w-lg mx-auto bg-white p-8 rounded-xl crisp-shadow border-t-8 border-secondary animate-on-scroll delay-100">
+                    <p class="mb-6 text-text-dark text-center text-lg font-semibold">
+                        Ready for your fast, guaranteed 3-day report? Fill out the details below to start the booking process.
+                    </p>
+                    <form onsubmit="handleContactSubmit(event)">
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-text-dark mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary transition">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-text-dark mb-1">Your Email</label>
+                            <input type="email" id="email" name="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary transition">
+                        </div>
+                        <div class="mb-6">
+                            <label for="query" class="block text-sm font-medium text-text-dark mb-1">Query Type (e.g., Booking/General)</label>
+                            <select id="query" name="query" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary transition">
+                                <option value="Booking">Booking Assessment</option>
+                                <option value="DSA">DSA Compliance Question</option>
+                                <option value="General">General Inquiry</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-orange-800 transition crisp-shadow text-lg">
+                            Request Booking Details
+                        </button>
+                    </form>
+                    <p id="contact-message" class="mt-4 text-center text-sm font-medium hidden transition-all duration-300"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-primary text-white py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h5 class="font-bold text-secondary mb-3">Assessment</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#assessment" data-page="assessment" class="footer-link text-gray-300 hover:text-secondary">Online Process</a></li>
+                        <li><a href="#report" data-page="report" class="footer-link text-gray-300 hover:text-secondary">3-Day Report</a></li>
+                        <li><a href="#team" data-page="team" class="footer-link text-gray-300 hover:text-secondary">APC Qualified</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold text-secondary mb-3">Support</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#report" data-page="report" class="footer-link text-gray-300 hover:text-secondary">DSA Compliance</a></li>
+                        <li><a href="#living" data-page="living" class="footer-link text-gray-300 hover:text-secondary">Living Well Guide</a></li>
+                        <li><a href="#" class="footer-link text-gray-300 hover:text-secondary">Privacy Policy (Link Mock)</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-2">
+                    <h5 class="font-bold text-secondary mb-3">Our Guarantee</h5>
+                    <p class="text-gray-300">We guarantee an affordable, efficient, and professionally compliant assessment. Your report is our priority for fast support access.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-300">
+                <p>&copy; <span id="year">2024</span> AssessFast.UK. All rights reserved. Assessment Fee: £295.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- ANIMATION / INTERSECTION OBSERVER LOGIC ---
+        
+        // This function sets up the scroll-based fade-in/slide-up animation
+        function initIntersectionObserver() {
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of element visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        
+                        // Apply animation class
+                        target.classList.add('fade-in-up');
+                        
+                        // Handle potential delay
+                        const delay = target.dataset.delay;
+                        if (delay) {
+                            target.style.transitionDelay = delay;
+                        }
+
+                        // Stop observing once it's animated
+                        observer.unobserve(target);
+                    }
+                });
+            }, observerOptions);
+
+            // Find all elements marked for animation
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                // Set initial hidden state
+                element.classList.add('transition', 'duration-1000', 'transform', 'opacity-0', 'translate-y-8');
+                
+                // Read delay from class list and set data attribute
+                const delayClass = Array.from(element.classList).find(c => c.startsWith('delay-'));
+                if (delayClass) {
+                    const delayMs = parseInt(delayClass.split('-')[1]);
+                    element.dataset.delay = `${delayMs}ms`;
+                    // Remove class to prevent conflict with IntersectionObserver logic
+                    element.classList.remove(delayClass); 
+                }
+                
+                observer.observe(element);
+            });
+
+             // Ensure Hero elements (which are already marked for animation) are visible immediately 
+            document.querySelectorAll('#home .fade-in-up').forEach(element => {
+                element.classList.add('fade-in-up');
+            });
+        }
+
+
+        // --- PAGE ROUTING & NAVIGATION LOGIC ---
+
+        function showPage(pageId) {
+            if (!pageId) pageId = 'home';
+
+            // Hide all page sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show the active page section
+            const activePage = document.getElementById(pageId);
+            if (activePage) {
+                activePage.classList.remove('hidden');
+            } else {
+                // Fallback to home if page not found
+                document.getElementById('home').classList.remove('hidden');
+                pageId = 'home';
+            }
+
+            // Update URL hash
+            history.pushState(null, '', '#' + pageId);
+
+            // Update active state on nav links (Desktop)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active', 'text-primary', 'text-text-light');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active', 'text-secondary');
+                } else if (link.dataset.page !== 'contact') {
+                     link.classList.add('text-text-light');
+                }
+            });
+
+            // Update active state on nav links (Mobile)
+            document.querySelectorAll('.nav-link-mobile').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // CRITICAL FIX: Ensure mobile menu closes after clicking a link
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Re-initialize observer for the newly visible section
+            initIntersectionObserver(); 
+        }
+
+        // --- EVENT LISTENERS ---
+
+        window.onload = () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Smooth scrolling navigation handler
+            document.querySelectorAll('.nav-link, .nav-link-mobile, .footer-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageId = e.currentTarget.dataset.page;
+                    showPage(pageId);
+                });
+            });
+            
+            // FIX: Simplified Mobile menu button toggler
+            document.getElementById('mobile-menu-button').addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.toggle('hidden');
+            });
+
+            // Handle initial page load from hash
+            let initialPage = window.location.hash.substring(1) || 'home';
+            showPage(initialPage);
+            
+            // Start the scroll animation observer
+            initIntersectionObserver();
+        };
+
+        // Contact Form Submission Handler (Non-functional mock)
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const messageBox = document.getElementById('contact-message');
+            
+            // Clear previous states
+            messageBox.classList.remove('hidden', 'text-red-600', 'bg-red-100', 'border-red-400', 'text-primary', 'bg-primary/10', 'border-primary');
+            
+            // Set success state
+            messageBox.classList.add('text-primary', 'bg-primary/10', 'p-3', 'rounded-lg', 'border-2', 'border-primary');
+            messageBox.innerHTML = 'Thank you for your interest! We have received your request and will send the full booking details to your email shortly.';
+            messageBox.classList.remove('hidden');
+            
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
