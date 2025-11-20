@@ -25,7 +25,9 @@
             }
         }
     </script>
-    <!-- Include Font Awesome for icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Include Font Awesome for icons -->
+    <!-- FIX: Using a specific version number instead of 'latest' to avoid MIME type issues -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Google Fonts: Inter --><link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,21 +70,23 @@
                     <a href="#assessment" data-page="assessment" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">The Process</a>
                     <a href="#report" data-page="report" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Report & DSA</a>
                     <a href="#living" data-page="living" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Living Well</a>
+                    <a href="#choose" data-page="choose" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Why Choose Us?</a>
                     <a href="#team" data-page="team" class="nav-link text-text-light hover:text-primary px-3 py-2 rounded-md">Our Experts</a>
-                    <a href="#contact" data-page="contact" class="nav-link px-4 py-2 bg-secondary text-white rounded-full hover:bg-orange-800 transition crisp-shadow ml-4">Book Now: £295</a>
+                    <a href="#contact" data-page="contact" class="nav-link px-4 py-2 bg-secondary text-white rounded-full hover:bg-orange-800 transition crisp-shadow ml-4">Book Now: £350</a>
                 </nav>
 
-                <!-- Mobile Menu Button --><button id="mobile-menu-button" class="md:hidden text-text-light focus:outline-none p-2 rounded-lg hover:bg-gray-100">
-                    <i class="fas fa-bars text-xl"></i>
+                <!-- Mobile Menu Button --><button id="mobile-menu-button" class="md:hidden text-text-light focus:outline-none p-2 rounded-lg hover:bg-gray-100" aria-controls="mobile-menu" aria-expanded="false">
+                    <i id="mobile-menu-icon" class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
-        <!-- Mobile Menu (Now simple 'hidden' toggling) --><nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-2 overflow-hidden">
+        <!-- Mobile Menu (Fixed: now toggles reliably and is fully visible) --><nav id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 pb-2 overflow-hidden">
             <a href="#assessment" data-page="assessment" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">The Assessment Process</a>
             <a href="#report" data-page="report" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Report & DSA Compliance</a>
             <a href="#living" data-page="living" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Living Well Support</a>
+            <a href="#choose" data-page="choose" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Why Choose Us?</a>
             <a href="#team" data-page="team" class="nav-link-mobile block py-2 px-4 text-sm text-text-dark hover:bg-gray-50">Meet Our Team</a>
-            <a href="#contact" data-page="contact" class="nav-link-mobile block py-2 px-4 text-sm bg-secondary text-white m-2 rounded-lg text-center crisp-shadow hover:bg-orange-800">Book Now: £295</a>
+            <a href="#contact" data-page="contact" class="nav-link-mobile block py-2 px-4 text-sm bg-secondary text-white m-2 rounded-lg text-center crisp-shadow hover:bg-orange-800">Book Now: £350</a>
         </nav>
     </header>
 
@@ -96,7 +100,7 @@
                             Get Diagnosed. <br>
                             <span class="text-primary">Get Supported.</span> <span class="text-secondary">Fast.</span>
                         </h1>
-                        <!-- Updated Content: SpLDs Covered (Asterisks removed) -->
+                        <!-- Updated Content: SpLDs Covered -->
                         <p class="text-xl text-text-light max-w-lg font-medium border-l-4 border-secondary pl-4">
                             UK-wide Online Assessments for Dyslexia, Dyspraxia and ADHD as a specific learning difficulty. Smooth process, exceptional value, and a guaranteed 3-day report turnaround.
                         </p>
@@ -104,7 +108,7 @@
                         <!-- Key Value Proposition -->
                         <div class="bg-primary/90 text-white p-6 rounded-xl crisp-shadow inline-block transition duration-1000 transform opacity-0 translate-y-4 delay-200 fade-in-up">
                             <h2 class="text-3xl md:text-4xl font-black flex items-center">
-                                <i class="fas fa-pound-sign text-secondary text-2xl mr-2"></i> Only <span class="ml-1">£295</span>
+                                <i class="fas fa-pound-sign text-secondary text-2xl mr-2"></i> Only <span class="ml-1">£350</span>
                             </h2>
                             <p class="text-sm mt-1">APC Qualified, DSA Compliant, and Unbeatable Value.</p>
                         </div>
@@ -129,7 +133,6 @@
                     <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
                         A Smooth, Online Process
                     </h2>
-                    <!-- Removed 'in the UK' -->
                     <p class="text-lg text-center max-w-3xl mx-auto mb-12 text-text-light">
                         Our entire assessment is conducted online, ensuring maximum convenience, comfort, and speed, wherever you are.
                     </p>
@@ -141,10 +144,10 @@
                         <h3 class="text-xl font-bold text-text-dark mb-2">1. Book Your Online Slot</h3>
                         <p class="text-sm text-text-light">Select a date and time that suits you. Complete the initial paperwork digitally before your session.</p>
                     </div>
-                    <!-- Step 2 (Updated Investigation Scope - Asterisks removed) --><div class="text-center p-6 bg-accent-light rounded-xl crisp-shadow border-t-4 border-primary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-200">
+                    <!-- Step 2 --><div class="text-center p-6 bg-accent-light rounded-xl crisp-shadow border-t-4 border-primary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-200">
                         <i class="fas fa-comments text-4xl text-primary mb-3"></i>
                         <h3 class="text-xl font-bold text-text-dark mb-2">2. Comprehensive Assessment</h3>
-                        <!-- Updated investigation text (Asterisks removed) -->
+                        <!-- Updated investigation text -->
                         <p class="text-sm text-text-light">A detailed online interview with an experienced APC-qualified assessor. We investigate for dyslexia, dyspraxia and ADHD as an SpLD.</p>
                     </div>
                     <!-- Step 3 (The Guarantee) --><div class="text-center p-6 bg-secondary/10 rounded-xl crisp-shadow border-t-4 border-secondary hover:scale-[1.02] transition-transform duration-300 animate-on-scroll delay-300">
@@ -169,18 +172,43 @@
                         Your Report: The Key to Support
                     </h2>
                 </div>
+                <!-- Ensuring responsiveness by using gap and consistent padding/margin -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                     <!-- Report Features -->
                     <div class="space-y-6 bg-white p-8 rounded-xl crisp-shadow border-l-4 border-secondary animate-on-scroll delay-100">
                         <h3 class="text-2xl font-bold text-secondary flex items-center"><i class="fas fa-file-invoice mr-3 text-primary text-2xl"></i> What's Inside Your Report?</h3>
                         <p class="text-text-dark text-lg">Your comprehensive report includes a formal diagnosis (where applicable) and clear, practical recommendations for support at work or in education.</p>
-                        <ul class="space-y-3 list-none pl-0 text-sm">
-                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-stamp text-primary mt-1 mr-3"></i> <strong>APC Qualified:</strong> Authored by an experienced, fully certified professional.</li>
-                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-university text-primary mt-1 mr-3"></i> <strong>DSA Compliant:</strong> Fully meets the requirements for applications to the Disabled Students’ Allowance (DSA).</li>
-                            <!-- NEW POINT ADDED: Access Arrangements -->
-                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-clock text-primary mt-1 mr-3"></i> <strong>Access Arrangements:</strong> Recommendations for appropriate Access Arrangements (e.g., extra time in exams).</li>
-                            <!-- Updated investigation scope and removed 'both'/'dual' -->
-                            <li class="flex items-start text-text-dark font-medium p-3 bg-secondary/5 rounded-lg"><i class="fas fa-puzzle-piece text-primary mt-1 mr-3"></i> <strong>SpLD Investigation:</strong> Explicit investigation and consideration of dyslexia, dyspraxia and ADHD as SpLDs.</li>
+                        <!-- FIX: List structure correction for better mobile flow -->
+                        <ul class="space-y-4 list-none pl-0 text-sm">
+                            <li class="flex items-start text-text-dark p-3 bg-secondary/5 rounded-lg">
+                                <i class="fas fa-stamp text-primary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <!-- Changed sm:inline to only use inline on mobile to force separation -->
+                                    <strong class="font-bold block mr-1">APC Qualified:</strong> 
+                                    <span class="font-medium block sm:inline">Authored by an experienced, fully certified professional.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start text-text-dark p-3 bg-secondary/5 rounded-lg">
+                                <i class="fas fa-university text-primary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">DSA Compliant:</strong> 
+                                    <span class="font-medium block sm:inline">Fully meets the requirements for applications to the Disabled Students’ Allowance (DSA).</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start text-text-dark p-3 bg-secondary/5 rounded-lg">
+                                <i class="fas fa-clock text-primary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">Access Arrangements:</strong> 
+                                    <span class="font-medium block sm:inline">Recommendations for appropriate Access Arrangements (e.g., extra time in exams).</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start text-text-dark p-3 bg-secondary/5 rounded-lg">
+                                <i class="fas fa-puzzle-piece text-primary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">SpLD Investigation:</strong> 
+                                    <span class="font-medium block sm:inline">Explicit investigation and consideration of dyslexia, dyspraxia and ADHD as SpLDs.</span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <!-- DSA Explanation -->
@@ -212,6 +240,7 @@
                     </p>
                 </div>
 
+                <!-- Uses md:grid-cols-2 lg:grid-cols-3 for responsive layout -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card 1: Executive Function --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-secondary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-100">
                         <i class="fas fa-cogs text-4xl text-secondary mb-4"></i>
@@ -221,7 +250,6 @@
                     <!-- Card 2: Workplace Adjustments (Updated Text) --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-primary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-200">
                         <i class="fas fa-desktop text-4xl text-primary mb-4"></i>
                         <h3 class="font-bold text-xl text-text-dark mb-2">Workplace Adjustments</h3>
-                        <!-- Updated Text -->
                         <p class="text-sm text-text-light">A basis for adjustments in the workplace</p>
                     </div>
                     <!-- Card 3: Self-Advocacy --><div class="bg-accent-light rounded-xl p-6 crisp-shadow border-l-4 border-secondary hover:scale-105 transition-transform duration-300 animate-on-scroll delay-300">
@@ -233,7 +261,84 @@
             </div>
         </section>
 
-        <!-- 5. Our Team / Expertise --><section id="team" class="page-section hidden py-16 md:py-20 bg-background">
+        <!-- 5. Why Choose Us? & Testimonials --><section id="choose" class="page-section hidden py-16 md:py-20 bg-accent-light">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
+                        Why Choose Us?
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Value Propositions -->
+                    <div class="space-y-4 bg-white p-8 rounded-xl crisp-shadow border-l-4 border-primary animate-on-scroll delay-100">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Our Commitment to You</h3>
+                        <!-- FIX: List structure correction for better mobile flow -->
+                        <ul class="space-y-4 text-text-dark text-base sm:text-lg font-medium">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-secondary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">Efficient Service:</strong> 
+                                    <span class="block sm:inline">Streamlined online process designed for speed and comfort.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-money-bill-wave text-secondary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">Cost-effective assessment:</strong> 
+                                    <span class="block sm:inline">£350 flat fee. Exceptional value compared to traditional services, in the comfort of your own home.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-truck-fast text-secondary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">Prompt Delivery:</strong> 
+                                    <span class="block sm:inline">Guaranteed 3-working-day report turnaround.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-secondary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">Professional and compliant report:</strong> 
+                                    <span class="block sm:inline">Fully meets DSA and professional standards.</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-hand-holding-usd text-secondary mt-1 mr-3 flex-shrink-0"></i> 
+                                <div>
+                                    <strong class="font-bold block mr-1">One flat fee:</strong> 
+                                    <span class="block sm:inline">No hidden costs, just clear, upfront pricing.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Testimonials -->
+                    <div class="space-y-6 animate-on-scroll delay-200">
+                        <h3 class="text-2xl font-bold text-primary mb-4 border-b-2 border-secondary pb-2">What Our Clients Say</h3>
+                        <div class="space-y-4">
+                            <blockquote class="bg-white p-5 rounded-xl border-l-4 border-secondary crisp-shadow text-text-dark italic text-base">
+                                <i class="fas fa-quote-left text-secondary mr-2"></i> "The assessment was thorough and helped me finally understand my learning challenges." <span class="block text-right font-semibold not-italic text-sm mt-2">- Sarah</span>
+                            </blockquote>
+                            <blockquote class="bg-white p-5 rounded-xl border-l-4 border-secondary crisp-shadow text-text-dark italic text-base">
+                                <i class="fas fa-quote-left text-secondary mr-2"></i> "I felt listened to and supported throughout the whole process." <span class="block text-right font-semibold not-italic text-sm mt-2">- James</span>
+                            </blockquote>
+                            <blockquote class="bg-white p-5 rounded-xl border-l-4 border-secondary crisp-shadow text-text-dark italic text-base">
+                                <i class="fas fa-quote-left text-secondary mr-2"></i> "The report was clear, detailed, and has made a huge difference at work." <span class="block text-right font-semibold not-italic text-sm mt-2">- Priya</span>
+                            </blockquote>
+                            <blockquote class="bg-white p-5 rounded-xl border-l-4 border-secondary crisp-shadow text-text-dark italic text-base">
+                                <i class="fas fa-quote-left text-secondary mr-2"></i> "I now have practical strategies that actually help me day-to-day." <span class="block text-right font-semibold not-italic text-sm mt-2">- Michael</span>
+                            </blockquote>
+                            <blockquote class="bg-white p-5 rounded-xl border-l-4 border-secondary crisp-shadow text-text-dark italic text-base">
+                                <i class="fas fa-quote-left text-secondary mr-2"></i> "The assessment gave us answers we’d been looking for for years." <span class="block text-right font-semibold not-italic text-sm mt-2">- Emily</span>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Our Team / Expertise --><section id="team" class="page-section hidden py-16 md:py-20 bg-background">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="animate-on-scroll">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
@@ -251,30 +356,32 @@
                         </div>
                         <div class="bg-white p-6 rounded-xl crisp-shadow border-t-8 border-primary animate-on-scroll delay-300">
                             <h3 class="text-2xl font-bold text-primary mb-2 flex items-center justify-center md:justify-start"><i class="fas fa-microscope mr-3"></i> SpLD Specialism</h3>
-                            <p class="text-sm text-text-light">Deep expertise in differential diagnosis, particularly the intersection of ADHD, Dyspraxia (DCD), and other specific learning difficulties.</p>
+                            <!-- UPDATED TEXT HERE -->
+                            <p class="text-sm text-text-light">Expertise in differential diagnosis, eg Dyslexia, ADHD, Dyspraxia (DCD) as an SpLD.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. Contact & Booking --><section id="contact" class="page-section hidden py-16 md:py-20 bg-accent-light">
+        <!-- 7. Contact & Booking --><section id="contact" class="page-section hidden py-16 md:py-20 bg-accent-light">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="animate-on-scroll">
                     <h2 class="text-3xl md:text-4xl font-extrabold text-primary mb-10 text-center border-b-4 border-secondary pb-2 max-w-xl mx-auto">
-                        Book Your £295 Online Assessment
+                        Book Your £350 Online Assessment
                     </h2>
                 </div>
                 <div class="max-w-lg mx-auto bg-white p-8 rounded-xl crisp-shadow border-t-8 border-secondary animate-on-scroll delay-100">
                     <p class="mb-6 text-text-dark text-center text-lg font-semibold">
                         Ready for your fast, guaranteed 3-day report? Fill out the details below to start the booking process.
                     </p>
-                    <!-- Added Email Reference -->
-                    <p class="text-center text-sm text-text-light mb-6">Or email us directly at: <a href="mailto:enquiries@EAassessments" class="text-secondary font-semibold hover:underline">enquiries@EAassessments</a></p>
+                    <!-- Updated Email Reference -->
+                    <p class="text-center text-sm text-text-light mb-6">Or email us directly at: <a href="mailto:EnquiriesAEA@gmail.com" class="text-secondary font-semibold hover:underline">EnquiriesAEA@gmail.com</a></p>
 
                     <form onsubmit="handleContactSubmit(event)">
                         <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-text-dark mb-1">Your Name</label>
+                            <!-- Updated Label -->
+                            <label for="name" class="block text-sm font-medium text-text-dark mb-1">Your full name</label>
                             <input type="text" id="name" name="name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary transition">
                         </div>
                         <div class="mb-4">
@@ -290,15 +397,19 @@
                             <label for="query" class="block text-sm font-medium text-text-dark mb-1">Query Type (e.g., Booking/General)</label>
                             <select id="query" name="query" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary transition">
                                 <option value="Booking">Booking Assessment</option>
-                                <!-- Removed DSA Compliance Question -->
                                 <option value="General">General Inquiry</option>
                             </select>
+                        </div>
+                        <!-- Added Phonecall Checkbox -->
+                        <div class="mb-6 flex items-start">
+                            <input type="checkbox" id="phonecall" name="phonecall" class="h-4 w-4 text-secondary rounded border-gray-300 focus:ring-secondary mt-1">
+                            <label for="phonecall" class="ml-2 block text-sm font-medium text-text-dark">Please let us know if you would like a phonecall</label>
                         </div>
                         <button type="submit" class="w-full py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-orange-800 transition crisp-shadow text-lg">
                             Request Booking Details
                         </button>
                     </form>
-                    <p id="contact-message" class="mt-4 text-center text-sm font-medium hidden transition-all duration-300"></p>
+                    <div id="contact-message" class="mt-4 text-center text-sm font-medium hidden transition-all duration-300 p-3 rounded-lg border-2"></div>
                 </div>
             </div>
         </section>
@@ -307,6 +418,7 @@
 
     <footer class="bg-primary text-white py-10">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-sm">
+            <!-- Ensure grid remains responsive -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <h5 class="font-bold text-secondary mb-3">Assessment</h5>
@@ -316,22 +428,27 @@
                         <li><a href="#team" data-page="team" class="footer-link text-gray-300 hover:text-secondary">APC Qualified</a></li>
                     </ul>
                 </div>
+                <!-- New Value Column -->
                 <div>
-                    <h5 class="font-bold text-secondary mb-3">Support</h5>
+                    <h5 class="font-bold text-secondary mb-3">Our Value</h5>
                     <ul class="space-y-2">
+                        <li><a href="#choose" data-page="choose" class="footer-link text-gray-300 hover:text-secondary">Why Choose Us?</a></li>
                         <li><a href="#report" data-page="report" class="footer-link text-gray-300 hover:text-secondary">DSA Compliance</a></li>
                         <li><a href="#living" data-page="living" class="footer-link text-gray-300 hover:text-secondary">Living Well Guide</a></li>
-                        <!-- Removed Privacy Policy link -->
                     </ul>
                 </div>
-                <div class="col-span-2 md:col-span-2">
-                    <h5 class="font-bold text-secondary mb-3">Our Guarantee</h5>
-                    <p class="text-gray-300">We guarantee an affordable, efficient, and professionally compliant assessment. Your report is our priority for fast support access.</p>
+                <!-- Guarantee & Policy Column (Using col-span-2 on mobile/desktop) -->
+                <div class="col-span-2">
+                    <h5 class="font-bold text-secondary mb-3">Our Guarantee & Contact</h5>
+                    <p class="text-gray-300 mb-4">We guarantee an affordable, efficient, and professionally compliant assessment. Your report is our priority for fast support access.</p>
+                    <!-- Policy and Email added here -->
+                    <p class="text-gray-300 italic">Please ask to see our Privacy and Data Handling Policies</p>
+                    <p class="text-gray-300 mt-1">Email: <a href="mailto:EnquiriesAEA@gmail.com" class="text-secondary hover:text-white transition">EnquiriesAEA@gmail.com</a></p>
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-6 text-center text-gray-300">
                 <!-- Updated Footer Branding -->
-                <p>&copy; <span id="year">2024</span> Adult Education Assessments.co.uk. All rights reserved. Assessment Fee: £295.</p>
+                <p>&copy; <span id="year">2024</span> Adult Education Assessments.co.uk. All rights reserved. Assessment Fee: £350.</p>
             </div>
         </div>
     </footer>
@@ -417,7 +534,7 @@
             // Update active state on nav links (Desktop)
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active', 'text-primary', 'text-text-light');
-                // The Home link (logo) should always look like the default link unless it's the contact button
+                // Exclude the 'Book Now' link from standard style changes
                 if (link.dataset.page === pageId && link.dataset.page !== 'contact') {
                     link.classList.add('active', 'text-secondary');
                 } else if (link.dataset.page !== 'contact') {
@@ -433,8 +550,17 @@
                 }
             });
             
-            // CRITICAL FIX: Ensure mobile menu closes after clicking a link
-            document.getElementById('mobile-menu').classList.add('hidden');
+            // CRITICAL: Ensure mobile menu closes after clicking a link
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            const mobileIcon = document.getElementById('mobile-menu-icon');
+
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileButton.setAttribute('aria-expanded', 'false');
+                mobileIcon.classList.remove('fa-xmark');
+                mobileIcon.classList.add('fa-bars');
+            }
             
             // Re-initialize observer for the newly visible section
             initIntersectionObserver(); 
@@ -454,9 +580,25 @@
                 });
             });
             
-            // FIX: Simplified Mobile menu button toggler
-            document.getElementById('mobile-menu-button').addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.toggle('hidden');
+            // FIX: Robust Mobile menu button toggler logic
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileButton = document.getElementById('mobile-menu-button');
+            const mobileIcon = document.getElementById('mobile-menu-icon');
+
+            mobileButton.addEventListener('click', () => {
+                const isExpanded = mobileMenu.classList.toggle('hidden');
+                
+                // Update aria-expanded attribute
+                mobileButton.setAttribute('aria-expanded', !isExpanded);
+                
+                // Toggle icon
+                if (isExpanded) {
+                    mobileIcon.classList.remove('fa-xmark');
+                    mobileIcon.classList.add('fa-bars');
+                } else {
+                    mobileIcon.classList.remove('fa-bars');
+                    mobileIcon.classList.add('fa-xmark');
+                }
             });
 
             // Handle initial page load from hash
@@ -476,10 +618,14 @@
             messageBox.classList.remove('hidden', 'text-red-600', 'bg-red-100', 'border-red-400', 'text-primary', 'bg-primary/10', 'border-primary');
             
             // Set success state
-            messageBox.classList.add('text-primary', 'bg-primary/10', 'p-3', 'rounded-lg', 'border-2', 'border-primary');
+            messageBox.classList.add('text-primary', 'bg-primary/10', 'border-primary');
             messageBox.innerHTML = 'Thank you for your interest! We have received your request and will send the full booking details to your email shortly.';
             messageBox.classList.remove('hidden');
             
+            // Only hide the message box if the user starts typing again (optional but good practice)
+            // event.target.addEventListener('input', () => messageBox.classList.add('hidden'), { once: true });
+            
+            // Clear the form fields after "submission"
             event.target.reset();
         }
     </script>
